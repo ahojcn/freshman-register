@@ -25,7 +25,9 @@ SECRET_KEY = 'qa7+9@ls834h3iq10ov#!w*leoo+$%!*q8@=#x3l!8jhe=-b%2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'ahojcn.natapp1.cc'
+]
 
 
 # Application definition

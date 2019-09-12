@@ -29,8 +29,6 @@
                 "something": something,
             };
 
-            console.log(temp_data);
-
             $.ajax({
                 url: 'register',
                 type: 'post',
@@ -38,7 +36,7 @@
                 data: JSON.stringify(temp_data),
                 success: function (data) {
                     $('#msg').html(data.msg);
-                    console.log(data);
+                    alert(data);
                 }
             })
 
