@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>加入我们-计算机协会-西安工程大学</title>
+</head>
+<body>
+
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script>
+    $(function () {
+        // 注册按钮点击事件
+        $('#btn').click(function () {
+            let name = $('#name').val();
+            let stu_id = $('#stu_id').val();
+            let qq = $('#qq').val();
+            let major = $('#major').val();
+            let phone = $('#phone').val();
+            let something = $('#something').val();
+
+            let temp_data = {
+                "name": name,
+                "stu_id": stu_id,
+                "qq": qq,
+                "major": major,
+                "phone": phone,
+                "something": something,
+            };
+
+            console.log(temp_data);
+
+            $.ajax({
+                url: 'register',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify(temp_data),
+                success: function (data) {
+                    $('#msg').html(data.msg);
+                    console.log(data);
+                }
+            })
+
+        })
+    })
+</script>
+
+<div style="background: #74ebd5;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ACB6E5, #74ebd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+height: 1000px;
+">
+
+    <table align="center" style="width: 300px;">
+        <tr>
+            <td>
+                <div class="alert alert-primary" role="alert" id="msg">
+                    西安工程大学计算机协会<br>
+                    期待你的加入！<br>
+                    (＾Ｕ＾)ノ~ＹＯ
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="姓名" id="name"
+                           aria-describedby="basic-addon1">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="姓名" id="stu_id"
+                           aria-describedby="basic-addon1">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="专业班级" id="major"
+                           aria-describedby="basic-addon1">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="QQ号" id="qq"
+                           aria-describedby="basic-addon1">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="手机号" id="phone"
+                           aria-describedby="basic-addon1">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="input-group mb-3">
+                    <input type="textarea" class="form-control" placeholder="你眼中的计算机协会" id="something"
+                           aria-describedby="basic-addon1">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" class="btn btn-primary btn-lg btn-block" id="btn">加入我们</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
