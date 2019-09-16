@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import UserInfo
 
@@ -6,6 +6,11 @@ from .models import UserInfo
 # Create your views here.
 def register_page(request):
     return render(request, 'register_page.html')
+
+
+def register_ok(request, name):
+    name = {"name": name}
+    return render(request, 'register_ok.html', name)
 
 
 def register(request):
@@ -36,7 +41,6 @@ def register(request):
             )
         except Exception as e:
             return HttpResponse("信息错误！请重新填写！")
-
-        return HttpResponse("注册OK啦~")
+        return HttpResponse(name)
 
     return HttpResponse("请求错误！")

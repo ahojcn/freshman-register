@@ -36,7 +36,8 @@
                 data: JSON.stringify(temp_data),
                 success: function (data) {
                     $('#msg').html(data.msg);
-                    alert(data);
+                    console.log(data);
+                    location.href = "http://ahojcn.natapp1.cc/register_ok/" + data
                 }
             })
 
@@ -53,11 +54,12 @@ height: 1000px;
     <table align="center" style="width: 300px;">
         <tr>
             <td>
-                <div class="alert alert-primary" role="alert" id="msg">
+                <div class="alert alert-primary" role="alert">
                     西安工程大学计算机协会<br>
                     期待你的加入！<br>
-                    (＾Ｕ＾)ノ~ＹＯ
+                    (＾Ｕ＾)ノ~ＹＯ<br>
                 </div>
+                <div id="msg" style="display: none"></div>
             </td>
         </tr>
         <tr>
@@ -71,7 +73,7 @@ height: 1000px;
         <tr>
             <td>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="姓名" id="stu_id"
+                    <input type="text" class="form-control" placeholder="学号" id="stu_id"
                            aria-describedby="basic-addon1">
                 </div>
             </td>
